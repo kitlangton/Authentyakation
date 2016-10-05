@@ -4,11 +4,40 @@
     <title>Authentyakation</title>
     <%= csrf_meta_tags %>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/restangular/1.5.2/restangular.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <nav class="navbar navbar-light bg-faded">
+      <div class="container">
+        <a class="navbar-brand" href="#">Authentyakation</a>
+        <ul class="nav navbar-nav">
+          <li class="nav-item <%= controller.controller_name == "angular" ? "active" : "" %>">
+            <a class="nav-link" href="/">Home</span></a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-xs-right">
+          <% if current_user %>
+            <li class="nav-item <%= controller.controller_name == "devise" ? "active" : "" %>">
+              <%= link_to "Log Out", destroy_user_session_path, class: "nav-link", method: :delete %>
+            </li>
+          <% else %>
+            <li class="nav-item <%= controller.controller_name == "devise" ? "active" : "" %>">
+              <%= link_to new_user_session_path do %>
+                <a class="nav-link" href="#">Log In</span></a>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+
     <%= yield %>
   </body>
 </html>

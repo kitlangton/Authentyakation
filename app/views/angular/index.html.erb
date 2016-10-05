@@ -1,0 +1,41 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Welcome To Yak Town</h1>
+    <p class="lead">Let's shave some yaks.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div ng-app="yaks">
+    <div ng-controller="YakCtrl">
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <table class="table">
+
+            <thead>
+              <th ng-click="create()">Name</th>
+              <th>Hair Length</th>
+              <th>Age</th>
+              <th>Shave</th>
+              <th>Cull</th>
+            </thead>
+
+            <tbody>
+              <tr ng-repeat="yak in yaks">
+                <td>{{yak.name}}</td>
+                <td>{{yak.hair_length}}"</td>
+                <td>{{yak.age}} Years Old</td>
+                <td><a ng-click="shave(yak)" href="">Shave</a></td>
+                <td><a ng-click="cull(yak)" href="">Cull</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

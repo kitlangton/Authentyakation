@@ -1,0 +1,2 @@
+module Yaks::ShavingsHelper
+end
