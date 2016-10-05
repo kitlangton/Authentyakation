@@ -1,0 +1,2 @@
+class Yak < ApplicationRecord
+end
